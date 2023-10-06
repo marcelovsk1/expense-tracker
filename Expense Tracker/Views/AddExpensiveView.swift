@@ -86,9 +86,17 @@ struct AddExpensiveView: View {
                 Button {
                     //
                 } label: {
-                    
+                    Text("Add Expense")
+                        .foregroundColor(.white)
+                        .bold()
+                        .frame(maxWidth: .infinity, minHeight: 50)
+                        .background(.blue)
+                        .cornerRadius(10)
+                        .shadow(color: .gray, radius: 2, x: 0, y: 2)
                 }
+                .padding()
                 
+                Spacer()
             }
             .padding(.horizontal)
             .navigationTitle("Add Expense")
