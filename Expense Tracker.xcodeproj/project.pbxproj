@@ -15,6 +15,8 @@
 		0B8E36492AD0A90C0042E06E /* AddExpensiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8E36482AD0A90C0042E06E /* AddExpensiveView.swift */; };
 		0B8E364B2AD0A91F0042E06E /* EditExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8E364A2AD0A91F0042E06E /* EditExpenseView.swift */; };
 		0B8E364D2AD0A9300042E06E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8E364C2AD0A9300042E06E /* SettingsView.swift */; };
+		0B8E36502AD0D4B10042E06E /* ExpenseTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0B8E364E2AD0D4B00042E06E /* ExpenseTracker.xcdatamodeld */; };
+		0B8E36552AD0D6010042E06E /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8E36542AD0D6010042E06E /* DataController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		0B8E36482AD0A90C0042E06E /* AddExpensiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpensiveView.swift; sourceTree = "<group>"; };
 		0B8E364A2AD0A91F0042E06E /* EditExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditExpenseView.swift; sourceTree = "<group>"; };
 		0B8E364C2AD0A9300042E06E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		0B8E364F2AD0D4B10042E06E /* ExpenseTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ExpenseTracker.xcdatamodel; sourceTree = "<group>"; };
+		0B8E36542AD0D6010042E06E /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,8 @@
 		0B8E36452AD0A8700042E06E /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
+				0B8E36542AD0D6010042E06E /* DataController.swift */,
+				0B8E364E2AD0D4B00042E06E /* ExpenseTracker.xcdatamodeld */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -176,7 +182,9 @@
 				0B8E36492AD0A90C0042E06E /* AddExpensiveView.swift in Sources */,
 				0B8E364B2AD0A91F0042E06E /* EditExpenseView.swift in Sources */,
 				0B8E36382AD0A8170042E06E /* MainView.swift in Sources */,
+				0B8E36502AD0D4B10042E06E /* ExpenseTracker.xcdatamodeld in Sources */,
 				0B8E364D2AD0A9300042E06E /* SettingsView.swift in Sources */,
+				0B8E36552AD0D6010042E06E /* DataController.swift in Sources */,
 				0B8E36362AD0A8170042E06E /* Expense_TrackerApp.swift in Sources */,
 				0B8E36472AD0A8ED0042E06E /* ExpenseView.swift in Sources */,
 			);
@@ -384,6 +392,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0B8E364E2AD0D4B00042E06E /* ExpenseTracker.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0B8E364F2AD0D4B10042E06E /* ExpenseTracker.xcdatamodel */,
+			);
+			currentVersion = 0B8E364F2AD0D4B10042E06E /* ExpenseTracker.xcdatamodel */;
+			path = ExpenseTracker.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0B8E362A2AD0A8170042E06E /* Project object */;
 }

@@ -9,6 +9,8 @@ import SwiftUI
 
 struct AddExpensiveView: View {
     
+    @Environment(\.managedObjectContext) var managedObjectContext
+    
     @State private var name = ""
     @State private var amount = ""
     @State private var isExpenseAdded = false
@@ -84,7 +86,24 @@ struct AddExpensiveView: View {
                 }
                 
                 Button {
-                    //
+                    let expense = Expense(context: managedObjectContext)
+                    expense.amount = Double(amount) ?? 0
+                    expense.date = Date()
+                    expense.id = UUID()
+                    expense.name = name
+                    expense.type = selectedCategory
+                    
+                    do {
+                        try managedObjectContext.save()
+                        print("Data saved successfully")
+                    } catch {
+                        let nsError = error as NSError
+                        fatalError("Unresolved error \(nsError)")
+                    }
+                    
+                    isExpenseAdded = true
+                    
+                    
                 } label: {
                     Text("Add Expense")
                         .foregroundColor(.white)
@@ -100,6 +119,17 @@ struct AddExpensiveView: View {
             }
             .padding(.horizontal)
             .navigationTitle("Add Expense")
+            .alert("Exoense Added!", isPresented:
+                    $isExpenseAdded) {
+                Button {
+                    isExpenseAdded = false
+                    name = ""
+                    amount = ""
+                    selectedCategory = nil
+                } label: {
+                   Text("Ok")
+                }
+            }
         }
     }
 }
