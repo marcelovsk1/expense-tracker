@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ExpenseView: View {
     
+    @Environment(\.managedObjectContext) var managedObjectContext
+    
     @FetchRequest(sortDescriptors: [SortDescriptor(\.date, order:
             .reverse)]) var expenses: FetchedResults<Expense>
     
@@ -29,6 +31,14 @@ struct ExpenseView: View {
                                     date: expense.date!, name: expense.name!,
                                     type: expense.type ?? "Transportation")
                             }
+                                .contextMenu {
+                                    Button {
+                                        //
+                                    } label: {
+                                        Label("Delete", systemImage: "trash")
+                                        
+                                    }
+                                }
                         }
                         
                     }
@@ -37,6 +47,20 @@ struct ExpenseView: View {
             }
             .padding()
             .navigationTitle("Expenses")
+        }
+    }
+    
+    func deleteExpense(expense: Expense) {
+        withAnimation {
+            managedObjectContext.delete(expense)
+            
+            do {
+                try managedObjectContext.save()
+                print("Data saved successfully")
+            } catch {
+                let nsError = error as NSError
+                fatalError("Unresolved error \(nsError)")
+            }
         }
     }
 }
