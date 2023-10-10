@@ -23,8 +23,12 @@ struct ExpenseView: View {
                             Spacer()
                         }
                         ForEach(expenses) { expense in
-                            ExpenseDetail(amount: String(expense.amount), date:
-                                            expense.date!, name: expense.name!, type: expense.type ?? "Transportation")
+                            NavigationLink(destination: 
+                                EditExpenseView(expense: expense)) {
+                                ExpenseDetail(amount: String(expense.amount),
+                                    date: expense.date!, name: expense.name!,
+                                    type: expense.type ?? "Transportation")
+                            }
                         }
                         
                     }
