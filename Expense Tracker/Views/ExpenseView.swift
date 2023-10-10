@@ -33,7 +33,7 @@ struct ExpenseView: View {
                             }
                                 .contextMenu {
                                     Button {
-                                        //
+                                        deleteExpense(expense: expense)
                                     } label: {
                                         Label("Delete", systemImage: "trash")
                                         
