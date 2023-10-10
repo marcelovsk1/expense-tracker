@@ -15,7 +15,20 @@ struct ExpenseView: View {
     var body: some View {
         NavigationView {
             VStack {
-                ScrollView()
+                ScrollView(.vertical, showsIndicators: true) {
+                    VStack {
+                        HStack {
+                            Text("Welcome")
+                                .font(.title)
+                            Spacer()
+                        }
+                        ForEach(expenses) { expense in
+                            ExpenseDetail(amount: String(expense.amount), date:
+                                            expense.date!, name: expense.name!, type: expense.type ?? "Transportation")
+                        }
+                        
+                    }
+                }
                 
             }
             .padding()
