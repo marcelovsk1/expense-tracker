@@ -9,6 +9,8 @@ import SwiftUI
 
 struct EditExpenseView: View {
     
+    @AppStorage("darkMode") var isDarkMode = false
+    
     @Environment(\.managedObjectContext) var managedObjContext
     @Environment(\.dismiss) var dismiss
     var expense: FetchedResults<Expense>.Element
@@ -32,7 +34,7 @@ struct EditExpenseView: View {
                 TextField("Name of Expense", text: $name)
                     .padding()
                     .foregroundColor(.secondary)
-                    .background(.white)
+                    .background(isDarkMode ? .black : .white)
                     .cornerRadius(10)
                     .shadow(color: .gray, radius: 2, x: 0, y: 2)
                 
@@ -123,6 +125,7 @@ struct EditExpenseView: View {
                 .padding()
                 
             }
+            .preferredColorScheme(isDarkMode ? .dark : .light)
             Spacer()
         }
     }

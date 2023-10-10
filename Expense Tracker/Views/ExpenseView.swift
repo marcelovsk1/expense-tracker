@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ExpenseView: View {
     
+    @AppStorage("darkMode") var isDarkMode = false
+    
     @Environment(\.managedObjectContext) var managedObjectContext
     
     @FetchRequest(sortDescriptors: [SortDescriptor(\.date, order:
@@ -47,6 +49,7 @@ struct ExpenseView: View {
             }
             .padding()
             .navigationTitle("Expenses")
+            .preferredColorScheme(isDarkMode ? .dark : .light)
         }
     }
     

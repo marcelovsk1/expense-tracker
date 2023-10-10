@@ -9,6 +9,8 @@ import SwiftUI
 
 struct AddExpensiveView: View {
     
+    @AppStorage("darkMode") var isDarkMode = false
+    
     @Environment(\.managedObjectContext) var managedObjectContext
     
     @State private var name = ""
@@ -24,14 +26,14 @@ struct AddExpensiveView: View {
                 TextField("Name of Expense", text: $name)
                     .padding()
                     .foregroundColor(.secondary)
-                    .background(.white)
+                    .background(isDarkMode ? .black : .white)
                     .cornerRadius(10)
                     .shadow(color: .gray, radius: 2, x: 0, y: 2)
                 
                 TextField("Amount", text: $amount)
                     .padding()
                     .foregroundColor(.secondary)
-                    .background(.white)
+                    .background(isDarkMode ? .black : .white)
                     .cornerRadius(10)
                     .shadow(color: .gray, radius: 2, x: 0, y: 2)
                 
@@ -130,6 +132,7 @@ struct AddExpensiveView: View {
                    Text("Ok")
                 }
             }
+            .preferredColorScheme(isDarkMode ? .dark : .light)
         }
     }
 }
